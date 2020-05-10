@@ -33,7 +33,17 @@ class MainNavigation extends Component {
 	};
 
 	open = () => this.setState({ isVisible: true });
-	close = () => this.setState({ isVisible: false });
+	close = (e) => {
+		this.setState({ isVisible: false });
+		this.scrollToSection(e);
+	};
+
+	scrollToSection = (e) => {
+		e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+		const targetElement = document.getElementById(e.target.getAttribute('href').substr(1));
+		if (!targetElement) return;
+		targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	};
 
 	render = () => {
 		const { props, state } = this;
@@ -50,7 +60,7 @@ class MainNavigation extends Component {
 									<Item key={index}>
 										<Link href={`#${item.id}`}>
 											<ItemLink
-												onClick={this.close}
+												onClick={(e) => this.close(e)}
 												href={`#${item.id}`}
 												isCurrentPage={props.currentPage.route === item.href}
 											>
