@@ -17,10 +17,10 @@ class Index extends Component {
 	render = () => {
 		return (
 			<>
-				<Home />
-				<WhenWhere />
-				<RSVP />
-				<Contact />
+				<Home {...this.props} />
+				<WhenWhere {...this.props} />
+				<RSVP {...this.props} />
+				<Contact {...this.props} />
 			</>
 		);
 	};

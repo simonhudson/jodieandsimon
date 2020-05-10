@@ -2,9 +2,8 @@
 
 import React, { Component } from 'react';
 import Link from 'next/link';
-import MainNavigationToggle from './toggle';
 import routes from '~/config/routes';
-import { Wrapper, Overlay, List, Item, ItemLink } from './index.styles';
+import { Wrapper, List, Item, ItemLink } from './index.styles';
 import { layout } from '~/theme';
 
 class MainNavigation extends Component {
@@ -49,8 +48,6 @@ class MainNavigation extends Component {
 		const { props, state } = this;
 		return (
 			<>
-				<MainNavigationToggle onClick={this.toggle} navigationIsVisible={state.isVisible} />
-				{state.isVisible && <Overlay data-test="main-navigation__overlay" />}
 				<Wrapper isVisible={state.isVisible} toggleClicked={state.toggleClicked} data-test="main-navigation">
 					<layout.Wrap>
 						<List>

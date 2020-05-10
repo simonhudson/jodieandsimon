@@ -1,12 +1,13 @@
 'use strict';
 
 module.exports = {
-	size: '14px',
-	sansSerif: `'Open Sans', arial, helvetica, sans-serif`,
-	serif: `'Lora', 'times new roman', serif`,
-	semiBold: 'opensans_semibold',
 	bold: 'opensans_bold',
 	code: `'Courier New', Courier, monospace`,
-	weight: '300',
+	cursive: `'Tangerine', cursive`,
 	lineHeight: `1.8`,
+	sansSerif: `'Open Sans', arial, helvetica, sans-serif`,
+	semiBold: 'opensans_semibold',
+	serif: `'Lora', 'times new roman', serif`,
+	size: '14px',
+	weight: '300',
 };
