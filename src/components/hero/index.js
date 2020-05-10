@@ -6,7 +6,7 @@ import { layout } from '~/theme';
 
 const CONFIG = {
 	home: {
-		heading: `Welcome to Jodie & Simon`,
+		heading: `Jodie & Simon`,
 	},
 	about: {
 		heading: 'About us',
