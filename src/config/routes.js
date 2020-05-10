@@ -3,25 +3,31 @@ module.exports = [
 		id: 'home',
 		label: 'Home',
 		href: '/',
-		pageTitle: 'Home'
+		pageTitle: 'Home',
 	},
 	{
-		id: 'about',
-		label: 'About',
-		href: '/about',
-		pageTitle: 'About us'
+		id: 'when-where',
+		label: 'When & Where',
+		href: '/when-where',
+		pageTitle: 'When & Where',
+	},
+	{
+		id: 'rsvp',
+		label: 'RSVP',
+		href: '/rsvp',
+		pageTitle: 'RSVP',
 	},
 	{
 		id: 'contact',
 		label: 'Contact',
 		href: '/contact',
-		pageTitle: 'Contact us'
+		pageTitle: 'Contact',
 	},
 	{
 		id: '404',
-		label: 'Contact',
+		label: '404',
 		href: '/404',
 		pageTitle: 'Page not found',
-		omitFromNavigation: true
+		omitFromNavigation: true,
 	},
 ];

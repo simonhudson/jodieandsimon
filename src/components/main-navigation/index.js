@@ -48,10 +48,10 @@ class MainNavigation extends Component {
 								if (item.omitFromNavigation) return null;
 								return (
 									<Item key={index}>
-										<Link href={item.href}>
+										<Link href={`#${item.id}`}>
 											<ItemLink
 												onClick={this.close}
-												href={item.href}
+												href={`#${item.id}`}
 												isCurrentPage={props.currentPage.route === item.href}
 											>
 												{item.label}

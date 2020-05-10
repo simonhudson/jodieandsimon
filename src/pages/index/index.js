@@ -1,9 +1,12 @@
 'use strict';
 
 import React, { Component } from 'react';
-import Theme from '~/theme';
+import Home from '~/sections/home';
+import WhenWhere from '~/sections/when-where';
+import RSVP from '~/sections/rsvp';
+import Contact from '~/sections/contact';
 
-class Home extends Component {
+class Index extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -14,10 +17,13 @@ class Home extends Component {
 	render = () => {
 		return (
 			<>
-				<Theme.layout.Wrap></Theme.layout.Wrap>
+				<Home />
+				<WhenWhere />
+				<RSVP />
+				<Contact />
 			</>
 		);
 	};
 }
 
-export default Home;
+export default Index;

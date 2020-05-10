@@ -25,7 +25,7 @@ const App = ({ Component, pageProps }) => {
 		route: router.route,
 	};
 
-	const pageConfig = routes.filter(route => pageProps.currentPage.route === route.href)[0];
+	const pageConfig = routes.filter((route) => pageProps.currentPage.route === route.href)[0];
 	let pageTitle = '';
 	if (pageConfig) pageTitle = `${pageConfig.pageTitle} | `;
 
