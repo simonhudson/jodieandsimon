@@ -18,7 +18,6 @@ describe('Hero', () => {
 	let objectUnderTest;
 	const selector = `div[data-test="hero"]`;
 	const heading = `p[data-test="hero__heading"]`;
-	const subHeading = `p[data-test="hero__sub-heading"]`;
 
 	afterEach(() => (!!objectUnderTest ? objectUnderTest.unmount() : null));
 
@@ -40,14 +39,6 @@ describe('Hero', () => {
 		initialise(props);
 		assertElementExists(objectUnderTest, heading);
 		expect(objectUnderTest.find(heading).text()).to.equal('About us');
-	});
-
-	it('should render with expected sub heading', () => {
-		const props = cloneDeep(baseProps);
-		props.currentPage.name = 'home';
-		initialise(props);
-		assertElementExists(objectUnderTest, subHeading);
-		expect(objectUnderTest.find(subHeading).text()).to.equal('This is a hero sub heading');
 	});
 
 	const initialise = (props) => (objectUnderTest = mountWithTheme(<Hero {...props} />));
