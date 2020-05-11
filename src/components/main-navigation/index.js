@@ -4,18 +4,16 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import routes from '~/config/routes';
 import { Wrapper, List, Item, ItemLink } from './index.styles';
-import { layout } from '~/theme';
 
 class MainNavigation extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			isVisible: false,
-			toggleClicked: false,
-		};
+		this.state = {};
 	}
 
-	componentDidMount = () => {};
+	componentDidMount = () => {
+		this.setState({ currentSection: 'home' });
+	};
 
 	toggle = (e) => {
 		e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -31,9 +29,8 @@ class MainNavigation extends Component {
 		body.classList[method](NO_SCROLL_CLASS);
 	};
 
-	open = () => this.setState({ isVisible: true });
-	close = (e) => {
-		this.setState({ isVisible: false });
+	handleNavClick = (e) => {
+		this.setCurrentSection(e.target.getAttribute('href').substr(1));
 		this.scrollToSection(e);
 	};
 
@@ -44,31 +41,35 @@ class MainNavigation extends Component {
 		targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
 
+	setCurrentSection = (currentSection) => {
+		this.setState({ currentSection });
+	};
+
+	isCurrentSection = (item) => this.state.currentSection === item.id;
+
 	render = () => {
-		const { props, state } = this;
+		const { state } = this;
 		return (
 			<>
 				<Wrapper isVisible={state.isVisible} toggleClicked={state.toggleClicked} data-test="main-navigation">
-					<layout.Wrap>
-						<List>
-							{routes.map((item, index) => {
-								if (item.omitFromNavigation) return null;
-								return (
-									<Item key={index}>
-										<Link href={`#${item.id}`}>
-											<ItemLink
-												onClick={(e) => this.close(e)}
-												href={`#${item.id}`}
-												isCurrentPage={props.currentPage.route === item.href}
-											>
-												{item.label}
-											</ItemLink>
-										</Link>
-									</Item>
-								);
-							})}
-						</List>
-					</layout.Wrap>
+					<List>
+						{routes.map((item, index) => {
+							if (item.omitFromNavigation) return null;
+							return (
+								<Item key={index}>
+									<Link href={`#${item.id}`}>
+										<ItemLink
+											onClick={(e) => this.handleNavClick(e)}
+											href={`#${item.id}`}
+											isCurrentSection={this.isCurrentSection(item)}
+										>
+											{item.label}
+										</ItemLink>
+									</Link>
+								</Item>
+							);
+						})}
+					</List>
 				</Wrapper>
 			</>
 		);

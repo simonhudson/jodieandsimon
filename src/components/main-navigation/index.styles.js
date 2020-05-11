@@ -7,9 +7,17 @@ const Wrapper = styled.nav`
 	${({ theme }) => theme.animation.defaults}
 	background: #fff;
 	height: auto;
-	padding: ${rem(10)} 0;
 	width: 100%;
 	z-index: 3;
+
+	${({ theme }) =>
+		theme.media(
+			'tablet-l',
+			`
+			width: 75%;
+			`
+		)};
+
 }`;
 
 const Overlay = styled.div`
@@ -25,22 +33,26 @@ const Overlay = styled.div`
 
 const List = styled.ul`
 	display: flex;
-	justify-content: flex-end;
+	justify-content: space-between;
 	list-style: none;
+
+	${({ theme }) =>
+		theme.media(
+			'tablet-l',
+			`
+			justify-content: flex-end;
+			`
+		)};
 `;
 
-const Item = styled.li`
-	&:not(:last-of-type) {
-		margin-right: ${rem(20)};
-	}
-`;
+const Item = styled.li``;
 
 const ItemLink = styled.a`
 	color: ${({ theme }) => theme.palette.primary.bodyText};
 	display: block;
 	font-size: ${rem(12)};
 	font-weight: 500;
-	padding: ${rem(10)};
+	padding: ${rem(20)};
 	text-decoration: none;
 	text-transform: uppercase;
 
@@ -61,8 +73,8 @@ const ItemLink = styled.a`
 				theme.media(
 					'tablet-l',
 					`
-				border-bottom: ${rem(1)} solid ${theme.palette.primary.b};
-				`
+					border-bottom: ${rem(1)} solid ${theme.palette.primary.b};
+					`
 				)};
 		`};
 `;

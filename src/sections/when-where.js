@@ -1,12 +1,13 @@
 'use strict';
 
 import React from 'react';
+import { Section } from './styles';
 
 const WhenWhere = (props) => {
 	if (!props) return null;
 
 	return (
-		<div id="when-where">
+		<Section id="when-where">
 			<props.theme.layout.Wrap>
 				<p>WhenWhere</p>
 				<p>
@@ -30,7 +31,7 @@ const WhenWhere = (props) => {
 					velit et justo cursus dapibus. Sed est lorem, interdum ut ornare ac, tristique id augue.
 				</p>
 			</props.theme.layout.Wrap>
-		</div>
+		</Section>
 	);
 };
 

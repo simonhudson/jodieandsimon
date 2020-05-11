@@ -1,12 +1,13 @@
 'use strict';
 
 import React from 'react';
+import { Section } from './styles';
 
 const Contact = (props) => {
 	if (!props) return null;
 
 	return (
-		<div id="contact">
+		<Section id="contact">
 			<props.theme.layout.Wrap>
 				<p>Contact</p>
 				<p>
@@ -30,7 +31,7 @@ const Contact = (props) => {
 					velit et justo cursus dapibus. Sed est lorem, interdum ut ornare ac, tristique id augue.
 				</p>
 			</props.theme.layout.Wrap>
-		</div>
+		</Section>
 	);
 };
 
